@@ -4,8 +4,9 @@
     width: 400px;
     top: 0;
     left: 0;
-    background-color: black;
+    background-color: #0b2474;
     transition-duration: 0.5s;
+    border-right: 1px solid white;
 }
 .closed{
     left: -400px;
@@ -18,9 +19,23 @@
     top: 50%;
     right: -20px;
     transform: translateY(-50%);
-    background: black;
+    color: white;
+    background: #0b2474;
     border-top-right-radius: 50%;
     border-bottom-right-radius: 50%;
     outline: none;
     box-shadow: none;
+    border: 1px solid white;
+}
+.countryList{
+    list-style: none;
+    height: 100%;
+    overflow-y: scroll;
+    padding: 0;
+}
+.countryList > li{
+    color: white;
+}
+.countryList > li > a{
+    cursor: pointer;
 }

@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
+import { useEffect } from 'react/cjs/react.development';
 import "./Navbar.css";
 
-function Navbar() {
+function Navbar(props) {
     const [menuOpened, setMenuOpened] = useState(1);
 
     const handleOpening = () => {
@@ -11,14 +12,17 @@ function Navbar() {
             setMenuOpened(1);
         }
     }
+    
     return(
         <div className={menuOpened? "sidemenu-container opened" : "sidemenu-container closed"}>
-            <ul>
-                <li>Dupa</li>
-                <li>upa</li>
-                <li>trzy</li>
-                <li>odbyty</li>
-                <li>dada</li>
+            <ul className="countryList">
+                {
+                    props.countries.map(countr => {
+                        return(
+                            <li key={countr["country"]}><a onClick={() => props.handleChangeCountry(countr)}>{countr["country"]}</a></li>
+                        )
+                    })
+                }
             </ul>
             <button className="toogle-sidemenu" onClick={handleOpening}>{menuOpened? '<': '>'}</button>
         </div>
